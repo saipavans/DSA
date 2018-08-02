@@ -1,6 +1,6 @@
 package arrays.highScore;
 
-public class testSimulation {
+public class TestSimulation {
 	
 	private static LeaderBoard leaderBoard = new LeaderBoard(3);
 	

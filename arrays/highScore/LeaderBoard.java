@@ -11,7 +11,7 @@ public class LeaderBoard {
 		this(DEFAULT_MAX_ENTRIES);
 	}
 	
-	public LeaderBoard(int maxEntries){
+	public LeaderBoard (int maxEntries){
 		this.maxEntries = maxEntries;
 		leaderBoard = new UserProfile[maxEntries];
 	}
@@ -29,17 +29,17 @@ public class LeaderBoard {
 			return;
 		}
 		
-		while ( i < currentEntries){
+		while (i < currentEntries){
 			
 			if (leaderBoard[i].getScore() > user.getScore()){
 				i++;
-			}else{
+			} else{
 				shiftRight(i);
 				leaderBoard[i] = user;
 				break;
 			}
 			
-			if(i == currentEntries){
+			if (i == currentEntries){
 				// Current User profile is high enough to be added in the end (There is space in leaderBoard)
 				leaderBoard[currentEntries++] = user;
 				break;
@@ -51,12 +51,14 @@ public class LeaderBoard {
 	public void shiftRight(int index){
 		UserProfile picked = null;
 		UserProfile temp = null;
-		for ( int i = index; i < currentEntries; i++){
+		
+		for (int i = index; i < currentEntries; i++){
 				temp = leaderBoard[i];
 				leaderBoard[i] = picked;
 				picked = temp;
 		}
-		if(currentEntries < maxEntries){
+		
+		if (currentEntries < maxEntries){
 			// There is an addition in the leaderboard
 			currentEntries++;
 			leaderBoard[currentEntries-1] = picked;
@@ -71,9 +73,11 @@ public class LeaderBoard {
 	
 	public String toString(){
 		StringBuilder boardDetails = new StringBuilder();
+		
 		for (int i = 0; i < currentEntries; i++){
 			boardDetails.append((leaderBoard[i]).toString());
 		}
+		
 		return boardDetails.toString();
 	}
 	
