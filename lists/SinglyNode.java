@@ -14,8 +14,10 @@ public class SinglyNode<E> {
 		return element;
 	}
 	
-	// NOTE: We do not require setter for element as we set it in the constructor
-
+	public void setElement(E element) {
+		this.element = element;
+	}
+	
 	public SinglyNode<E> getNext() {
 		return next;
 	}
