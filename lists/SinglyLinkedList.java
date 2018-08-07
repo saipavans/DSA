@@ -28,17 +28,23 @@ public class SinglyLinkedList<E> {
 	
 	// Adds a new element at the start of the list
 	public void addFirst(E element){
-		
+		SinglyNode<E> newElement = new SinglyNode<E>(element, head);
+		head = newElement;
+		size += 1;
 	}
 	
 	// Adds a new element at the end of the list
 	public void addLast(E element){
-		
+		SinglyNode<E> newElement = new SinglyNode<E>(element, null);
+		tail.setNext(newElement);
+		tail = newElement;
+		size += 1;
 	}
 	
 	// Removes a new element at the start of the list
 	public void removeFirst(){
-		
+		head = head.getNext();
+		size -= 1;
 	}
 	
 	
