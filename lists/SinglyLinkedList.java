@@ -30,6 +30,9 @@ public class SinglyLinkedList<E> {
 	public void addFirst(E element){
 		SinglyNode<E> newElement = new SinglyNode<E>(element, head);
 		head = newElement;
+		if (size == 0){
+			tail = head;
+		}
 		size += 1;
 	}
 	
@@ -38,13 +41,21 @@ public class SinglyLinkedList<E> {
 		SinglyNode<E> newElement = new SinglyNode<E>(element, null);
 		tail.setNext(newElement);
 		tail = newElement;
+		if (size == 0){
+			head = tail;
+		}
 		size += 1;
 	}
 	
-	// Removes a new element at the start of the list
-	public void removeFirst(){
+	// Removes a new element at the start of the list and returns it.
+	public E removeFirst(){
+		if (size == 0){
+			return null;
+		}
+		E elementRemoved = head.getElement();
 		head = head.getNext();
 		size -= 1;
+		return elementRemoved;
 	}
 	
 	
