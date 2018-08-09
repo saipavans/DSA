@@ -58,6 +58,40 @@ public class SinglyLinkedList<E> {
 		return elementRemoved;
 	}
 	
+	public boolean equals(Object o) {
+		
+		if (o == null) {
+			return false; // Because this object is not null
+		} 
+		
+		if (this.getClass() != o.getClass()) {
+			return false; // Both the objects belong to diff class 
+		}
+		
+		SinglyLinkedList otherObject = (SinglyLinkedList) o; // This is safe to do at this point
+		
+		if (size != otherObject.size){ 
+			// NOTE: Size of other object can still be used even though it is private because,
+			// It is still being used inside the same SinglyLinkedList class to which it was declared as private.
+			return false;
+		}
+		
+		SinglyNode thisNode = this.head;
+		SinglyNode otherNode = otherObject.head;
+		
+		while( thisNode != null) {
+			if (thisNode.getElement().equals(otherNode.getElement())) {
+				thisNode = thisNode.getNext();
+				otherNode = otherNode.getNext();
+			} else {
+				return false;
+			}
+		}
+		
+		return true;
+		
+	}
+	
 	
 	
 	

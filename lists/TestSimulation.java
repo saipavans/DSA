@@ -11,8 +11,8 @@ public class TestSimulation {
 		SinglyLinkedList<Integer> singlyList = new SinglyLinkedList<Integer>();
 		System.out.println("Size of Singly Linked List: " + singlyList.size());
 		
-		singlyList.addFirst(1);
 		singlyList.addFirst(2);
+		singlyList.addFirst(1);
 		singlyList.addLast(3);
 		System.out.println("Size of Singly Linked List: " + singlyList.size());
 
@@ -28,6 +28,28 @@ public class TestSimulation {
 		System.out.println("The following element was removed: " + removedInt);
 		System.out.println("Size of Singly Linked List: " + singlyList.size());
 		
+		
+		
+		// Testing equivalence
+		
+		singlyList.addFirst(2);
+		singlyList.addFirst(1);
+		singlyList.addLast(3);
+		
+		SinglyLinkedList<Integer> anotherSinglyList = new SinglyLinkedList<Integer>();
+		SinglyLinkedList<String> yetAnotherSinglyList = new SinglyLinkedList<String>();
+
+		anotherSinglyList.addFirst(3);
+		anotherSinglyList.addFirst(2);
+		anotherSinglyList.addFirst(1);
+		
+		yetAnotherSinglyList.addFirst("3");
+		yetAnotherSinglyList.addFirst("2");
+		yetAnotherSinglyList.addFirst("1");
+		
+		System.out.println("** Equivlance Testing **");
+		System.out.println(singlyList.equals(anotherSinglyList));
+		System.out.println(singlyList.equals(yetAnotherSinglyList));
 		
 		
 		// Testing Circularly Linked List
