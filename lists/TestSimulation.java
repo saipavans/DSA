@@ -32,7 +32,7 @@ public class TestSimulation {
 		
 		// Testing Circularly Linked List
 		
-		CircularlyLinkedList<Integer> circularList = new CircularlyLinkedList<Integer>();
+		CircularlyLinkedList<Integer> circularList = new CircularlyLinkedList<>();
 		System.out.println("Size of Circular Linked List: " + circularList.size());
 		
 		circularList.addFirst(4);
@@ -51,6 +51,32 @@ public class TestSimulation {
 		System.out.println("Size of Circular Linked List: " + circularList.size());		
 		System.out.println("First Element: " + circularList.first());
 		System.out.println("Last Element: " + circularList.last());
+		
+		
+		// Testing 	Doubly Linked List
+		
+		DoublyLinkedList<String> doublyList = new DoublyLinkedList<String>();
+		System.out.println("Size of Doubly Linked List: " + doublyList.size());
+		
+		doublyList.addFirst("2");
+		doublyList.addFirst("1");
+		doublyList.addLast("3");
+		System.out.println("Size of Doubly Linked List: " + doublyList.size());
+
+		String removedString = (String) doublyList.removeFirst();
+		System.out.println("The following element was removed: " + removedString);
+		System.out.println("Size of Doubly Linked List: " + doublyList.size());
+		//doublyList.display();
+		
+		removedString = (String) doublyList.removeFirst();
+		System.out.println("The following element was removed: " + removedString);
+		System.out.println("Size of Doubly Linked List: " + doublyList.size());
+		
+		removedString = (String) doublyList.removeFirst();
+		System.out.println("The following element was removed: " + removedString);
+		System.out.println("Size of Doubly Linked List: " + doublyList.size());
+		
+
 	
 	}
 
