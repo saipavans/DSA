@@ -14,13 +14,10 @@ public class DiskUsage {
 			for (File subPath : directoryContents) {
 				length += diskUsage(subPath);
 			}
+						
+		} 
 			
-			System.out.println(length + "\t" + path);
-			
-		} else {
-			System.out.println(length + "\t" + path);
-		}
-		
+		System.out.println(length + "\t" + path);	
 		return length;
 	}
 
