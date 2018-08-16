@@ -2,7 +2,7 @@ package queues;
 
 public class TestSimulation {
 	
-	private static Queue<Integer> numbers = new ArrayQueue<Integer>();
+	private static Queue<Integer> numbers = new LinkedQueue<Integer>();
 
 	public static void main(String[] args) {
 		
