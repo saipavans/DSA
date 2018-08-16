@@ -38,6 +38,11 @@ public class SinglyLinkedList<E> {
 	
 	// Adds a new element at the end of the list
 	public void addLast(E element){
+		if (isEmpty()){
+			addFirst(element); // When size is 0, add Last means Add first
+			return; // To avoid NPE after the if block because tail is not set when size is 0.
+		}
+		
 		SinglyNode<E> newElement = new SinglyNode<E>(element, null);
 		tail.setNext(newElement);
 		tail = newElement;
