@@ -4,7 +4,7 @@ import stacks.Stack;
 
 public class TestSimulation {
 
-	private static Stack<Integer> numbers = new ArrayStack<Integer>(5);
+	private static Stack<Integer> numbers = new LinkedStack<Integer>();
 	
 	public static void main(String[] args) {
 		
