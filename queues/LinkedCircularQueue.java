@@ -1,6 +1,6 @@
 package queues;
 
-import lists.CircularlyLinkedList;
+import fundamentals.linkedlists.CircularlyLinkedList;
 
 public class LinkedCircularQueue<E> implements CircularQueue<E> {
 	

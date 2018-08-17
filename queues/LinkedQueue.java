@@ -1,6 +1,6 @@
 package queues;
 
-import lists.SinglyLinkedList;
+import fundamentals.linkedlists.SinglyLinkedList;
 
 public class LinkedQueue<E> implements Queue<E> {
 	

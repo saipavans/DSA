@@ -1,6 +1,6 @@
 package stacks;
 
-import lists.SinglyLinkedList;
+import fundamentals.linkedlists.SinglyLinkedList;
 
 public class LinkedStack<E> implements Stack<E> {
 
