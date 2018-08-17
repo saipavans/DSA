@@ -2,7 +2,7 @@ package queues;
 
 public class TestSimulation {
 	
-	private static Queue<Integer> numbers = new LinkedQueue<Integer>();
+	private static CircularQueue<Integer> numbers = new LinkedCircularQueue<Integer>();
 
 	public static void main(String[] args) {
 		
@@ -11,8 +11,7 @@ public class TestSimulation {
 		numbers.enqueue(87);
 		numbers.enqueue(85);
 		numbers.enqueue(97);
-		numbers.dequeue();
-		numbers.enqueue(87);
+		numbers.rotate(); // We rotate the Circular queue now instead of dequeueing 87 from front and enqueueing 87 at the back.
 		numbers.enqueue(65);
 		numbers.enqueue(67);
 		
