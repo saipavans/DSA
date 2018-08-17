@@ -1,5 +1,6 @@
-package lists;
+package fundamentals.linkedlists;
 
+import fundamentals.nodes.DoublyNode;
 import queues.Deque;
 
 public class DoublyLinkedList<E> implements Deque<E> {

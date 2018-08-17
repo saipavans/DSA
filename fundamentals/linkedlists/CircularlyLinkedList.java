@@ -1,4 +1,6 @@
-package lists;
+package fundamentals.linkedlists;
+
+import fundamentals.nodes.SinglyNode;
 
 public class CircularlyLinkedList<E> {
 	

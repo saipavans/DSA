@@ -1,4 +1,4 @@
-package lists;
+package fundamentals.linkedlists;
 
 import queues.Deque;
 

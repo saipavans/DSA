@@ -1,4 +1,4 @@
-package lists;
+package fundamentals.nodes;
 
 public class DoublyNode<E> {
 	
