@@ -13,9 +13,7 @@ public interface Deque<E> {
 	int size();
 	
 	boolean isEmpty();
-	
-	void enqueue(E e);
-	
+		
 	E first();
 	
 	E last();

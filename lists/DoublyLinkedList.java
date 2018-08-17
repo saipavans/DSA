@@ -1,6 +1,8 @@
 package lists;
 
-public class DoublyLinkedList<E> {
+import queues.Deque;
+
+public class DoublyLinkedList<E> implements Deque<E> {
 	
 	private DoublyNode<E> head = null;
 	private DoublyNode<E> tail = null;

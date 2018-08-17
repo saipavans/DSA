@@ -1,5 +1,7 @@
 package lists;
 
+import queues.Deque;
+
 public class TestSimulation {
 	
 	
@@ -77,7 +79,7 @@ public class TestSimulation {
 		
 		// Testing 	Doubly Linked List
 		
-		DoublyLinkedList<String> doublyList = new DoublyLinkedList<String>();
+		Deque<String> doublyList = new DoublyLinkedList<String>();
 		System.out.println("Size of Doubly Linked List: " + doublyList.size());
 		
 		doublyList.addFirst("2");
