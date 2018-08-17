@@ -9,6 +9,7 @@ public class ArrayQueue<E> implements Queue<E> {
 	private int front = 0; // Dequeue at front and Enqueue at the rear
 	
 	
+	@SuppressWarnings("unchecked")
 	public ArrayQueue(int capacity) {
 		data = (E[]) new Object[capacity];
 	}

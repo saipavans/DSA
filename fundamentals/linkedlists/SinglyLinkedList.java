@@ -75,7 +75,8 @@ public class SinglyLinkedList<E> {
 			return false; // Both the objects belong to diff class 
 		}
 		
-		SinglyLinkedList otherObject = (SinglyLinkedList) o; // This is safe to do at this point
+		@SuppressWarnings("unchecked")
+		SinglyLinkedList<E> otherObject = (SinglyLinkedList<E>) o; // This is safe to do at this point
 		
 		if (size != otherObject.size){ 
 			// NOTE: Size of other object can still be used even though it is private because,
@@ -83,8 +84,8 @@ public class SinglyLinkedList<E> {
 			return false;
 		}
 		
-		SinglyNode thisNode = this.head;
-		SinglyNode otherNode = otherObject.head;
+		SinglyNode<E> thisNode = this.head;
+		SinglyNode<E> otherNode = otherObject.head;
 		
 		while( thisNode != null) {
 			if (thisNode.getElement().equals(otherNode.getElement())) {

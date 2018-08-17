@@ -6,6 +6,7 @@ public class ArrayStack<E> implements Stack<E> {
 	private E[] data = null;
 	private int top = -1 ; // Empty stack
 	
+	@SuppressWarnings("unchecked")
 	public ArrayStack(int size) {
 		data = (E[]) new Object[size]; // as generic arrays cannot be created
 	}
