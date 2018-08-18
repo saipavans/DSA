@@ -24,6 +24,6 @@ public interface List<E> {
 	void add(int i, E e) throws IndexOutOfBoundsException;
 	
 	/** Removes and returns the element at index i, moving all subsequent elements to left (decrease one index) */
-	void remove(int i) throws IndexOutOfBoundsException;
+	E remove(int i) throws IndexOutOfBoundsException;
 	
 }
