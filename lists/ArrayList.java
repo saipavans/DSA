@@ -2,7 +2,7 @@ package lists;
 
 public class ArrayList<E> implements List<E> {
 	
-	private static int DEFAULT_CAPACITY = 1000;
+	private static int DEFAULT_CAPACITY = 16;
 	private E[] data = null;
 	private int size = 0;
 	
@@ -54,7 +54,7 @@ public class ArrayList<E> implements List<E> {
 		}
 		
 		if(size == data.length) {
-			throw new IllegalStateException("ArrayList is full");
+			resize(2 * data.length); // Automatically resize when full.
 		}
 		
 		if ((size-i) == 0) { 
@@ -91,6 +91,17 @@ public class ArrayList<E> implements List<E> {
 		data[size-1] = null; // Make it eligible for GC
 		size--;
 		return removedElement;
+	}
+	
+	private void resize(int newCapacity) {
+		@SuppressWarnings("unchecked")
+		E[] newDataArray = (E[]) new Object[newCapacity];
+		
+		for (int i = 0; i < data.length; i++) {
+			newDataArray[i] = data[i]; // Copying array contents
+		}
+		
+		data = newDataArray; // making the old array eligible for GC
 	}
 
 }

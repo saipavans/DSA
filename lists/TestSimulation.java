@@ -3,7 +3,7 @@ package lists;
 public class TestSimulation {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> numberList = new ArrayList<Integer>(5);
+		ArrayList<Integer> numberList = new ArrayList<Integer>(2);
 		
 		for (int i = 0; i < 4; i++) {
 			numberList.add(i,i);
