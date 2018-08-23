@@ -1,5 +1,7 @@
 package lists;
 
+// TODO: Shrink an array after certain remove operations.
+
 public class ArrayList<E> implements List<E> {
 	
 	private static int DEFAULT_CAPACITY = 16;
