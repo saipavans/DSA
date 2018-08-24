@@ -1,5 +1,7 @@
 package lists;
 
+import java.util.Iterator;
+
 public class TestSimulation {
 
 	public static void main(String[] args) {
@@ -20,8 +22,9 @@ public class TestSimulation {
 	}
 	
 	private static void displayArrayList(ArrayList<Integer> arrayList) {
-		for (int i = 0; i < arrayList.size(); i++) {
-			System.out.println(arrayList.get(i));
+		Iterator<Integer> it = arrayList.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
 		}
 	}
 }

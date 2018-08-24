@@ -1,5 +1,8 @@
 package lists;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 // TODO: Shrink an array after certain remove operations.
 
 public class ArrayList<E> implements List<E> {
@@ -104,6 +107,47 @@ public class ArrayList<E> implements List<E> {
 		}
 		
 		data = newDataArray; // making the old array eligible for GC
+	}
+	
+	
+	private class ArrayListIterator implements Iterator<E> {
+		
+		private int j = 0; // Track index of items iterated. NOTE: j = 1 => first element, j = size => Last element of the ArrayList
+		private boolean removable = false; // Is the remove method callable
+		
+		@Override
+		public boolean hasNext() {
+			return j < size;
+		}
+
+		@Override
+		public E next() throws NoSuchElementException {
+			if (j == size) { // Therefore, j can never be greater than size as this is the only method that increments j
+				throw new NoSuchElementException("No next element");
+			}
+			removable = true;
+			return data[j++];
+		}
+		
+		/**
+		 * Removes the element returned by most recent call to next
+		 * @throws IllegalStateException if next was not called till now
+		 * @throws IllegalStateException if remove was already called since the last time we called next
+		 */
+		public void remove() throws IllegalStateException {
+			if (!removable) {
+				throw new IllegalStateException("Could not perform Remove operation at this time");
+			}
+			
+			ArrayList.this.remove(j-1); // As j is (1+j)th element of ArrayList
+			j--;
+			removable = false;
+		}
+		
+	}
+	
+	public Iterator<E> iterator() {
+		return new ArrayListIterator(); // Creates a new instance of the ArrayListIterator (inner class) 
 	}
 
 }
