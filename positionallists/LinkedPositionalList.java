@@ -1,5 +1,8 @@
 package positionallists;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 import fundamentals.nodes.DoublyNode;
 
 public class LinkedPositionalList<E> implements PositionalList<E> {
@@ -139,6 +142,75 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 		node.setPrev(null);
 		
 		return removedElement;
+	}
+	
+	
+	private class PositionalListIterator implements Iterator<Position<E>> {
+		
+		private Position<E> cursor = first(); // Position of next element to be iterated over
+		private Position<E> recent = null; // Position already iterated
+
+		@Override
+		public boolean hasNext() {
+			return cursor != null; // As sentinel nodes have position as null
+		}
+
+		@Override
+		public Position<E> next() throws NoSuchElementException {
+			if (cursor == null) {
+				throw new NoSuchElementException("End of iteration");
+			}
+			recent = cursor;
+			cursor = after(recent);
+			return recent;
+		}
+		
+		public void remove() throws IllegalStateException {
+			if (recent == null) {
+				throw new IllegalStateException("Nothing to remove");
+			}
+			LinkedPositionalList.this.remove(recent);
+			// WRONG! recent = before(cursor);
+			recent = null; // As we don't want to allow remove again until next is called again.
+		}
+		
+	} // End of Nested class
+	
+	private class PositionalListIterable implements Iterable<Position<E>> {
+
+		@Override
+		public Iterator<Position<E>> iterator() {
+			return new PositionalListIterator();
+		}
+		
+		public Iterable<Position<E>> positions() {
+			return new PositionalListIterable();
+		}
+		
+	}
+	
+	
+	private class ElementIterator implements Iterator<E> {
+		Iterator<Position<E>> posIterator = new PositionalListIterator();
+
+		@Override
+		public boolean hasNext() {
+			return posIterator.hasNext();
+		}
+
+		@Override
+		public E next() {
+			return posIterator.next().getElement();
+		}
+		
+		public void remove() {
+			posIterator.remove();
+		}
+	}
+	
+	
+	public Iterator<E> iterator() {
+		return new ElementIterator();
 	}
 
 }
